@@ -13,3 +13,86 @@
     padding-top: 5px;
     color: white;
 }
+
+/* card design start here */
+
+.card-container {
+    margin-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px 10px;
+}
+
+.card {
+    height: 300px;
+    width: 200px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    height: 150px;
+    width: 160px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* padding-top: 20px;
+    padding-left: 30px; */
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card h5 {
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.rating {
+    font-size: 10px;
+}
+
+.rating span {
+    font-size: 12px;
+    background-color: rgb(216, 84, 150);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 10%;
+    margin-left: 10px;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.box h1 {
+    font-size: 25px;
+    color: black;
+    font-weight: 900;
+}
+
+.box button {
+    background-color: #E74694;
+    color: white;
+    border: none;
+    padding: 6px 9px;
+    border-radius: 5px;
+    border: 1px solid #E74694;
+}
+
+.box button:hover {
+    /* border: 1px solid #E74694; */
+    background-color: white;
+    color: #E74694;
+}
