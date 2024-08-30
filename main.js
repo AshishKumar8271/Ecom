@@ -46,13 +46,11 @@ const createCard = (product) => {
 
 // Fetch data and create cards
 const productDataApi = async () => {
-    const url = "https://api.escuelajs.co/api/v1/products";
-    try {
+    const url = "https://shopy-backend.vercel.app/api/v1/products";
+    try { 
         const response = await fetch(url);
         const data = await response.json();
-        
-        // Assuming `data` is an array of products
-        data.forEach(product => createCard(product));
+        data.products.forEach(product => createCard(product));
     } catch (error) {
         console.error('Error fetching product data:', error);
     }
