@@ -8,7 +8,7 @@ const createCard = (product) => {
     card.className = 'card';
 
     const cardImg = document.createElement('img');
-    cardImg.src = product.images[0]; // Ensure this property is correct
+    cardImg.src = product.image; // Ensure this property is correct
     cardImg.alt = product.title; // Add alt text for accessibility
 
     const cardInfo = document.createElement('div');
@@ -46,9 +46,9 @@ const createCard = (product) => {
 
 // Fetch data and create cards
 const productDataApi = async () => {
-    const url = "https://shopy-backend.vercel.app/api/v1/products";
+    const url = `https://shopy-backend.vercel.app`;
     try { 
-        const response = await fetch(url);
+        const response = await fetch(url + "/api/v1/products");
         const data = await response.json();
         data.products.forEach(product => createCard(product));
     } catch (error) {
