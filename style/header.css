@@ -6,6 +6,17 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* removing blue hightligh for mobiles when pressed something */
+div,
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
 /* navbar */
 .navbar {
   display: flex;

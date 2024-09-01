@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopy</title>
+    <link rel="stylesheet" href="/style/index.css">
+    <script src="./js/main.js" defer></script>
+    <script src="./js/header.js" defer></script>
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- header and slider -->
+    <header class="head">
+        <nav class="navbar">
+          <a href="./index.html" class="weblogo">
+            <img src="./assets/weblogo.webp" alt="" />
+            <h3>Day Light Showroom</h3>
+          </a>
+    
+          <!-- navlinks -->
+            <ul class="navlinks">
+              <li>
+                <a href="">Home</a>
+              </li>
+              <li>
+                <a href="">About</a>
+              </li>
+              <li>
+                <a href="">Services</a>
+              </li>
+              <li>
+                <a href="">Pricing</a>
+              </li>
+              <li>
+                <a href="" class="CartLink">Cart
+                  <span class="itemsCount">0</span>
+                </a>
+              </li>
+            </ul>
+            
+        <!-- profilePic and menuBtn -->
+          <div class="userControl">
+            <div id="profile" class="userProfile">
+              <img src="./assets/user.jpg" alt="" />
+    
+              <div id="dropdown" class="dropdown">
+                <div class="info">
+                  <p>Bonnie Green</p>
+                  <h5>name@gmail.com</h5>
+                </div>
+                <ul class="accControl">
+                  <li>
+                    <a href="">Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="">Settings</a>
+                  </li>
+                  <li>
+                    <a href="">Earnings</a>
+                  </li>
+                  <li>
+                    <a href="">Sign Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="menuBtn" id="menuBtn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+          
+        <!-- slide menu for small screens -->
+          <div class="menu" id="menu">
+            <ul class="menuList" id="menuList">
+              <li>
+                <a href="">Home</a>
+              </li>
+              <li>
+                <a href="">About</a>
+              </li>
+              <li>
+                <a href="">Services</a>
+              </li>
+              <li>
+                <a href="">Pricing</a>
+              </li>
+              <li>
+                <a href="" class="CartLink">Cart
+                  <span class="itemsCount">0</span>
+                </a>
+    
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+    
+      <!-- slider -->
+      <section class="slider-container">
+        <div class="slider">
+          <img src="./assets/banner1.jpg" alt="" class="slide" />
+          <img src="./assets/banner2.jpg" alt="" class="slide" />
+          <img src="./assets/banner3.jpg" alt="" class="slide" />
+          <img src="./assets/banner4.jpg" alt="" class="slide" />
+        </div>
+    
+        <button class="slideBtn " id="next" onclick="nextSlide()">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+        <button class="slideBtn" id="prev" onclick="prevSlide()">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+      </section>
+
+
+
+    <!-- card Item -->
+     <div class="card-container">
+        <!-- dynamically loaded by javascript -->
+
+        <!-- <div class="card">
+            <img src="https://i.imgur.com/YaSqa06.jpeg" alt="">
+            <div class="card-info">
+                <h5>Styles Red Headphone</h5>
+                <p class="rating"> ⭐ ⭐ ⭐ ⭐ ⭐ <span>4.5</span></p>
+                <div class="box">
+                    <h1>$100</h1>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div> -->
+     </div>
+</body>
+</html>
