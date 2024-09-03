@@ -7,44 +7,61 @@ const createCard = (product) => {
     const card = document.createElement('div');
     card.className = 'card';
 
+    const imgWrapper = document.createElement('div');
+    imgWrapper.className = 'img-wrapper';
     const cardImg = document.createElement('img');
-    cardImg.src = product.image; // Ensure this property is correct
-    cardImg.alt = product.title; // Add alt text for accessibility
+    cardImg.src = product.image; 
+    cardImg.alt = product.title;
+    imgWrapper.appendChild(cardImg);
 
     const cardInfo = document.createElement('div');
     cardInfo.className = 'card-info';
 
-    const productTitle = document.createElement('h5');
+    const productTitle = document.createElement('h2');
     productTitle.textContent = product.title.substring(0,15);
 
+    const rateDeliveryBox = document.createElement('div');
+    rateDeliveryBox.className = "rate-delivery";
     const productRating = document.createElement('p');
-    productRating.className = 'rating';
-    let num = Math.floor(Math.random() * 5+1);
-    productRating.innerHTML = `⭐ ⭐ ⭐ ⭐ ⭐ <span>${num + 0.1}</span>`; // Adjust property name if necessary
+    productRating.className = 'card-rating';
+    productRating.innerHTML = `${"⭐"}<span>${product.rating}</span>`;
+    const deliveryTime = document.createElement('span');
+    deliveryTime.className = "delivery-time";
+    const minTime = 5;
+    const maxtime = 60;
+    const randomDeliveryTime = getRandomDeliveryTime(minTime, maxtime);
+    deliveryTime.textContent = randomDeliveryTime;
+    rateDeliveryBox.appendChild(productRating);
+    rateDeliveryBox.appendChild(deliveryTime);
 
     const box = document.createElement('div');
     box.className = 'box';
 
-    const productPrice = document.createElement('h1');
-    productPrice.textContent = `$${product.price}`; // Ensure this property is correct
+    const productPrice = document.createElement('span');
+    productPrice.textContent = `price: $${product.price}`;
 
     const buyBtn = document.createElement('button');
-    buyBtn.textContent = 'Buy Now';
+    buyBtn.textContent = 'Add To Cart';
 
     // Assemble the card
     box.appendChild(productPrice);
     box.appendChild(buyBtn);
     cardInfo.appendChild(productTitle);
-    cardInfo.appendChild(productRating);
+    cardInfo.appendChild(rateDeliveryBox);
     cardInfo.appendChild(box);
-    card.appendChild(cardImg);
+    card.appendChild(imgWrapper);
     card.appendChild(cardInfo);
 
     // Append the card to the container
     cardContainer.appendChild(card);
 };
 
-// Fetch data and create cards
+function getRandomDeliveryTime(min, max) {
+    const firstTime = Math.floor(Math.random() * (max - min + 1) + min);
+    const secondTime = Math.floor(Math.random() * (max - firstTime + 1) + firstTime);
+    return `🕕 ${firstTime}-${secondTime} mins`;
+}
+
 const productDataApi = async () => {
     const url = `https://shopy-backend.vercel.app`;
     try { 

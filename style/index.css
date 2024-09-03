@@ -2,6 +2,7 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .upper-message {
@@ -14,72 +15,75 @@
     color: white;
 }
 
-/* card design start here */
+/* ____Product Card___ */
 
 .card-container {
-    margin-top: 5vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px 10px;
+    width: 90%;
+    margin: 1rem auto;
 }
 
 .card {
-    height: 300px;
-    width: 200px;
-    border: 1px solid gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-top: 4rem;
+    width: 100%;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: solid grey 2px;
+    padding: 1rem;
+}
+
+.card .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card img {
-    height: 150px;
-    width: 160px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* padding-top: 20px;
-    padding-left: 30px; */
+    width: 100%;
+    height: 250px;
+    background-size: cover;
 }
 
 .card-info {
+    margin-top: 1rem;
+}
+
+.card-info .rate-delivery {
+    margin-top: .3rem;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 22px;
+}
+.card-info .rate-delivery .delivery-time {
+    font-size: 1.2rem;
+    color: grey;
+    font-weight: 700;
+    margin-top: 5px;
 }
 
-.card h5 {
-    font-size: 15px;
-    padding-top: 10px;
+
+.card-rating {
+    font-size: 1rem;
 }
 
-.rating {
-    font-size: 10px;
-}
-
-.rating span {
-    font-size: 12px;
+.card-rating span {
     background-color: rgb(216, 84, 150);
     color: white;
-    padding: 3px 5px;
-    border-radius: 10%;
-    margin-left: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    margin-left: 5px;
 }
 
 .box {
+    margin-top: .5rem;
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: space-between;
 }
 
-.box h1 {
-    font-size: 25px;
+.box span {
+    font-size: 1.2rem;
     color: black;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .box button {
@@ -89,10 +93,36 @@
     padding: 6px 9px;
     border-radius: 5px;
     border: 1px solid #E74694;
+    cursor: pointer;
 }
 
 .box button:hover {
-    /* border: 1px solid #E74694; */
     background-color: white;
     color: #E74694;
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        width: 60%;
+        margin: 1rem auto;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-container {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        border: none;
+        width: 23%;
+        padding: 1rem;
+    }
 }
