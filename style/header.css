@@ -1,0 +1,288 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* removing blue hightligh for mobiles when pressed something */
+div,
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+/* ---- daylight showroom and logo ----- */
+.weblogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.weblogo img {
+  height: 32px;
+  width: 32px;
+}
+
+.weblogo h3 {
+  font-weight: 600;
+}
+
+
+/* ---  navLinks --- */
+.navlinks {
+  display: none;
+  width: 45%;
+  min-width: 200px;
+  max-width: 450px;
+}
+
+@media screen and (min-width: 700px) {
+  .navlinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.navlinks li {
+  list-style: none;
+}
+
+.navlinks li a {
+  color: black;
+  text-decoration: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.navlinks li a:hover {
+  color: #047f95;
+}
+
+.CartLink{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.itemsCount {
+  background-color: rgb(248, 114, 137);
+  display: inline-block;
+  text-align: center;
+  padding: 3px 8px;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+
+
+/* ---- userProfile ----*/
+
+.userControl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.userProfile {
+  position: relative;
+
+}
+
+.userProfile img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+
+/* ---- menu button ----- */
+.menuBtn {
+  font-size: 20px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  border: 2px solid rgb(128, 128, 128, 0.3);
+  color: gray;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+
+@media screen and (min-width: 700px) {
+  .menuBtn {
+    display: none;
+  }
+}
+
+
+/* ---- dropDown ------ */
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 3px;
+    border: 2px solid rgb(128, 128, 128, 0.2);
+    margin-top: 8px;
+    background-color: white;
+    border-radius: 8px;
+    min-width: 180px;
+    font-size: 14px;
+    z-index: 20;
+  }
+
+.dropdown .info {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.accControl li {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  list-style: none;
+}
+.accControl li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px 12px;
+}
+
+.accControl li a:hover {
+  background-color: rgb(128, 128, 128, 0.2);
+}
+
+.show {
+    display: block;
+}
+
+
+/* --- menu --- */
+.menu {
+  position: absolute;
+  background-color: white;
+  height: 0;
+  overflow:hidden;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  transition: all .2s linear;
+  z-index: 10;
+}
+
+@media screen and (min-width: 700px) {
+  .menu {
+    display: none;
+  }
+}
+
+.menuList {
+  padding: 8px 12px;
+}
+
+.menuList li {
+  list-style: none;
+
+}
+
+.menuList li a {
+  text-decoration: none;
+  display: block;
+  color: black;
+  /* background-color: red; */
+  padding: 8px;
+  box-shadow: 0px 0.5px rgba(128, 128, 128, 0.2);
+}
+
+.menuList li a:hover{
+  background-color:#047f95;
+  color: white;
+  padding-left: 12px;
+  transition: all .2s linear;
+}
+
+
+/* ----slider css ---- */
+
+.slider-container {
+  position: relative;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.slider {
+  height: 30vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all .3s ease;
+
+}
+
+@media screen and (min-width: 370px){
+  .slider {
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 500px){
+  .slider {
+    height: 60vh;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .slider {
+    height: 80vh;
+  }
+}
+
+.slideBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255,0.3);
+  width: 33px;
+  height: 33px;
+  border: 2px solid rgb(128, 128, 128, 0.5);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  z-index: 9;
+}
+
+#prev {
+  left: 6px;
+}
+
+#next {
+  right: 6px;
+}
