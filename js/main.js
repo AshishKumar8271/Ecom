@@ -6,6 +6,7 @@ const createCard = (product) => {
     // Create and configure elements
     const card = document.createElement('div');
     card.className = 'card';
+    card.style.cursor = "pointer"
 
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'img-wrapper';
@@ -38,7 +39,7 @@ const createCard = (product) => {
     box.className = 'box';
 
     const productPrice = document.createElement('span');
-    productPrice.textContent = `price: $${product.price}`;
+    productPrice.textContent = `Price: $${product.price}`;
 
     const buyBtn = document.createElement('button');
     buyBtn.textContent = 'Add To Cart';
@@ -54,6 +55,10 @@ const createCard = (product) => {
 
     // Append the card to the container
     cardContainer.appendChild(card);
+
+    card.addEventListener("click", () => {
+        window.location.href = `product-details.html?id=${product._id}`;
+    });
 };
 
 function getRandomDeliveryTime(min, max) {
