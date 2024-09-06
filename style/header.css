@@ -247,6 +247,31 @@ a {
 
 }
 
+/* search box start */
+.search-box {
+  display: flex;
+}
+
+.search-bar {
+  width: 100px;
+  border: 2px solid black;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.search-bar:focus {
+  outline: none; /* Removes the focus border */
+}
+
+.fa-magnifying-glass {
+  border: 2px solid black;
+  padding: 4px;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 @media screen and (min-width: 370px){
   .slider {
     height: 40vh;
