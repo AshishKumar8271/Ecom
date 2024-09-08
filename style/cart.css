@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.cart-container {
+    width: 100%;
+    padding: 1rem 1rem;
+}
+
+.cart-container h1 {
+    font-size: 1.4rem;
+}
+
+.cart-container .product {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product .product-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.product .product-info .food-title {
+    font-size: 14px;
+    color: #333;
+}
+
+.product .product-info .fa-solid {
+    font-size: 14px;
+    color: rgb(75, 130, 75);
+}
+
+.product .action-and-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.product .action-and-price .actions {
+    border: 1px solid rgb(75, 130, 75);
+    border-radius: 4px;
+}
+
+.product .action-and-price .actions button {
+    border: none;
+    font-size: 14px;
+    color: rgb(75, 130, 75);
+    padding: 4px 8px;
+    background-color: transparent;
+}
+
+.product .action-and-price .totalPrice {
+    font-size: 14px;
+}
+
+.bill-details {
+    margin-top: 2rem;
+}
+
+.bill-details .item {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-details .item p {
+    font-size: 13px;
+    color: #333;
+}
+
+.bill-details .divider {
+    margin: 1rem 0;
+    width: 100%;
+    height: 1px; 
+    background-color: #c9bfbf;
+}
+
+.bill-details .to-pay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-details .to-pay p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .cart-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cart-container h1 {
+        width: 70%;
+    }
+
+    .cart-container .product-container {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .cart-container .product-container {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .product {
+        width: 55%;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #eee5e5;
+    }
+
+    .bill-details {
+        width: 40%;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #eee5e5;
+    }
+}
