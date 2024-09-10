@@ -26,30 +26,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const displayProductDetails = (product) => {
-    const productImg = document.querySelector(".img");
-    const productTitle = document.querySelector(".product-title");
-    const productDescription = document.querySelector(".product-description");
-    const productCategory = document.querySelector(".product-category");
-    const productPrice = document.querySelector(".product-price");
-    const productRating = document.querySelector(".product-rating");
+  const productImg = document.querySelector(".img");
+  const productTitle = document.querySelector(".product-title");
+  const productDescription = document.querySelector(".product-description");
+  const productCategory = document.querySelector(".product-category");
+  const productPrice = document.querySelector(".product-price");
+  const productRating = document.querySelector(".product-rating");
 
-    productImg.src = product.image;
-    productTitle.textContent = product.title;
-    productDescription.textContent = product.description;
-    productCategory.textContent = "Category: " + product.category;
-    productPrice.textContent = "$ " + product.price;
-    const ratingStars = calculateRatingStars(product.rating);
-    productRating.textContent = `${ratingStars} (${product.rating})`;
-}
-
+  productImg.src = product.image;
+  productTitle.textContent = product.title;
+  productDescription.textContent = product.description;
+  productCategory.textContent = "Category: " + product.category;
+  productPrice.textContent = "$ " + product.price;
+  const ratingStars = calculateRatingStars(product.rating);
+  productRating.textContent = `${ratingStars} (${product.rating})`;
+};
 
 // Recommended Products
 const recommendedSection = document.querySelector(".recommended-section");
 
 const createRecommendedProductCard = (product) => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || {};
+  let quantity = cart[product._id]?.quantity || 0;
+
   const productCard = document.createElement("div");
   productCard.className = "recommended-product-card";
-  
+
   const productDetails = document.createElement("product-details");
   productDetails.className = "product-details";
 
@@ -85,16 +87,19 @@ const createRecommendedProductCard = (product) => {
   recommendedActions.className = "recommended-actions";
 
   const increaseQuantity = document.createElement("button");
-  increaseQuantity.className = "quantity-btn";
+  increaseQuantity.className = "increase-quantity-btn";
   increaseQuantity.textContent = "+";
 
   const decreaseQuantity = document.createElement("button");
-  decreaseQuantity.className = "quantity-btn";
+  decreaseQuantity.className = "decrease-quantity-btn";
   decreaseQuantity.textContent = "-";
 
   const addButton = document.createElement("button");
   addButton.className = "add-to-cart-btn";
-  addButton.textContent = "Add";
+  addButton.textContent = quantity ? quantity : "Add";
+
+  increaseQuantity.style.display = quantity > 0 ? "block" : "none";
+  decreaseQuantity.style.display = quantity > 0 ? "block" : "none";
 
   const divider = document.createElement("div");
   divider.className = "divider";
@@ -111,27 +116,64 @@ const createRecommendedProductCard = (product) => {
 
   recommendedSection.appendChild(productCard);
   recommendedSection.appendChild(divider);
-}
+
+  addButton.addEventListener("click", () => {
+    quantity++;
+    addButton.textContent = quantity;
+    if (quantity > 0) {
+      increaseQuantity.style.display = "block";
+      decreaseQuantity.style.display = "block";
+    }
+
+    saveToLocalStorage(product, quantity);
+  });
+
+  increaseQuantity.addEventListener("click", () => {
+    quantity++;
+    addButton.textContent = quantity;
+
+    saveToLocalStorage(product, quantity);
+  });
+
+  decreaseQuantity.addEventListener("click", () => {
+    quantity--;
+
+    if (quantity < 1) {
+      increaseQuantity.style.display = "none";
+      decreaseQuantity.style.display = "none";
+      addButton.textContent = "Add";
+    } else {
+      addButton.textContent = quantity;
+    }
+
+    saveToLocalStorage(product, quantity);
+  });
+};
 
 const getRecommendedProducts = async () => {
   const url = `https://shopy-backend.vercel.app`;
-    try { 
-        const response = await fetch(url + "/api/v1/products");
-        const data = await response.json();
+  try {
+    const response = await fetch(url + "/api/v1/products");
+    const data = await response.json();
 
-        const heading2 = document.querySelector(".recommended-header");
-        heading2.textContent = `Recommended Products (${data.products.length - 1})`
+    const heading2 = document.querySelector(".recommended-header");
+    heading2.textContent = `Recommended Products (${data.products.length - 1})`;
 
-        data.products.forEach(product => createRecommendedProductCard(product));
+    data.products.forEach((product) => createRecommendedProductCard(product));
 
-        const dividers = document.querySelectorAll(".divider");
-        if(dividers.length > 0) {
-          dividers[dividers.length - 1].style.display = "none"
-        }
-    } catch (error) {
-        console.error('Error fetching product data:', error);
+    const dividers = document.querySelectorAll(".divider");
+    if (dividers.length > 0) {
+      dividers[dividers.length - 1].style.display = "none";
     }
-}
+  } catch (error) {
+    console.error("Error fetching product data:", error);
+  }
+};
 
 getRecommendedProducts();
 
+const saveToLocalStorage = (product, quantity) => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || {};
+  cart[product._id] = { ...product, quantity };
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
