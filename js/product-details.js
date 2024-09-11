@@ -118,7 +118,9 @@ const createRecommendedProductCard = (product) => {
   recommendedSection.appendChild(divider);
 
   addButton.addEventListener("click", () => {
-    quantity++;
+    if(quantity == 0) {
+      quantity++;
+    }
     addButton.textContent = quantity;
     if (quantity > 0) {
       increaseQuantity.style.display = "block";
@@ -174,6 +176,20 @@ getRecommendedProducts();
 
 const saveToLocalStorage = (product, quantity) => {
   let cart = JSON.parse(localStorage.getItem("cart")) || {};
-  cart[product._id] = { ...product, quantity };
+  if (quantity <= 0) {
+    delete cart[product._id];
+  } else {
+    cart[product._id] = { ...product, quantity };
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  const cartItems = document.querySelector(".itemsCount");
+  if(cart) {
+    const cartLength = Object.keys(cart).length;
+    cartItems.textContent = cartLength;
+  }
+  else {
+    cartItems.textContent = 0;
+  }
 };

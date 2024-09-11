@@ -43,6 +43,17 @@ const initializeHeaderEvents = () => {
       menu.style.height = `${listHeight}px`;
     }
   });
+  
+  const cartItems = document.querySelector(".itemsCount");
+  let cart = localStorage.getItem("cart");
+  if (cart) {
+    cart = JSON.parse(cart);
+    const cartLength = Object.keys(cart).length;
+
+    cartItems.textContent = cartLength;
+  } else {
+    cartItems.textContent = 0;
+  }
 };
 
 loadHeader();
