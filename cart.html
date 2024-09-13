@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/cart.css">
     <script src="./js/header.js" defer></script>
+    <script src="./js/cart.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 <body>
@@ -15,28 +16,34 @@
 
     <!-- Cart container -->
     <div class="cart-container">
-        <h1>Cart Items:</h1>
+        <div class="headLine">
+            <h1>Cart Items:</h1>
+            <p class="clearAll">Clear All</p>
+        </div>
         <div class="product-container">
-            <div class="product">
-                <div class="product-info">
-                    <i class="fa-solid fa-bowl-food"></i>
-                    <p class="food-title">Food title</p>
-                </div>
-               <div class="action-and-price">
-                    <div class="actions">
-                        <button class="quantity-increase-btn">+</button>
-                        <button class="quantity">5</button>
-                        <button class="quantity-decrease-btn">-</button>
+            <!-- <div class="products">
+                <div class="item">
+                    <div class="item-info">
+                        <i class="fa-solid fa-bowl-food icon"></i>
+                        <p class="food-title">Food title</p>
                     </div>
-    
-                    <p class="totalPrice">$420</p>
-               </div>
-            </div>
+                   <div class="action-and-price">
+                        <div class="actions">
+                            <button class="quantity-increase-btn">+</button>
+                            <p class="quantity">5</p>
+                            <button class="quantity-decrease-btn">-</button>
+                        </div>
+        
+                        <p class="totalPrice">$420</p>
+                   </div>
+                </div>
+            </div> -->
+            
             <div class="bill-details">
                 <strong>Bill Details:</strong>
                 <div class="item">
                     <p>Item Total</p>
-                    <p>$220</p>
+                    <p class="totalItem">$220</p>
                 </div>
                 <div class="item">
                     <p>Delivery partner fee</p>
@@ -44,7 +51,7 @@
                 </div>
                 <div class="item">
                     <p>Extra discount for you</p>
-                    <p>$220</p>
+                    <p>$40</p>
                 </div>
     
                 <div class="divider"></div>
@@ -66,7 +73,7 @@
     
                 <div class="to-pay">
                     <p>To Pay</p>
-                    <p>$224</p>
+                    <p class="totalPay">$224</p>
                 </div>
             </div>
         </div>

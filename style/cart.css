@@ -10,46 +10,76 @@
     padding: 1rem 1rem;
 }
 
-.cart-container h1 {
-    font-size: 1.4rem;
+.cart-container .headLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.cart-container .product {
+.cart-container .headLine h1 {
+    font-size: 1.2rem;
+}
+
+.cart-container .headLine p {
+    background-color: rgb(170, 170, 206);
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.cart-container .headLine p:hover {
+    cursor: pointer;
+}
+
+.cart-container .product-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.products .item {
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.product .product-info {
+ .products .item .item-info {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 4px;
 }
 
-.product .product-info .food-title {
-    font-size: 14px;
-    color: #333;
-}
-
-.product .product-info .fa-solid {
+.products .item .item-info .icon {
     font-size: 14px;
     color: rgb(75, 130, 75);
 }
 
-.product .action-and-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
+.products .item .item-info .food-title {
+    font-size: 14px;
+    color: rgb(75, 130, 75);
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.product .action-and-price .actions {
+.products .item .action-and-price {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.products .item .action-and-price .actions {
     border: 1px solid rgb(75, 130, 75);
     border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 
-.product .action-and-price .actions button {
+.products .action-and-price .actions button, .quantity {
     border: none;
     font-size: 14px;
     color: rgb(75, 130, 75);
@@ -57,8 +87,15 @@
     background-color: transparent;
 }
 
-.product .action-and-price .totalPrice {
-    font-size: 14px;
+.products .action-and-price .actions button:hover {
+    cursor: pointer;
+}
+
+.products .action-and-price .totalPrice {
+    font-size: 12px;
+    color: rgb(75, 130, 75);
+    min-width: 50px;
+    text-align: right;
 }
 
 .bill-details {
@@ -78,7 +115,7 @@
 }
 
 .bill-details .divider {
-    margin: 1rem 0;
+    margin: 1rem 0; 
     width: 100%;
     height: 1px; 
     background-color: #c9bfbf;
@@ -91,6 +128,8 @@
 }
 
 .bill-details .to-pay p {
+    padding-left: 0;
+    padding-right: 0;
     font-size: 1rem;
     font-weight: bold;
 }
@@ -104,35 +143,79 @@
         align-items: center;
     }
 
-    .cart-container h1 {
-        width: 70%;
+    .cart-container .headLine {
+        min-width: 510px;
     }
 
     .cart-container .product-container {
         width: 70%;
+    }
+
+    .products .item .item-info .food-title {
+        font-size: 14px;
+        color: #333;
+        max-width: 350px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .products .action-and-price .totalPrice {
+        font-size: 15px;
+        min-width: 80px;
+        text-align: right;
+    }
+
+    .bill-details strong {
+        font-size: 1.2rem;
+    }
+
+    .bill-details .item p {
+        font-size: 16px;
+    }
+
+    .bill-details .to-pay p {
+        font-size: 1.2rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .cart-container .product-container {
-        width: 70%;
-        display: flex;
-        justify-content: space-between;
-        align-items: start;
+    .cart-container .headLine {
+        min-width: 1050px;   
     }
 
-    .product {
+    .cart-container .product-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .products {
+        margin-top: 1rem;
         width: 55%;
+    } 
+
+    .products .item {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
         padding: 1rem;
         border-radius: 8px;
         background-color: #eee5e5;
     }
 
+    .products .action-and-price .totalPrice {
+        min-width: 100px;
+        text-align: right;
+    }
+
     .bill-details {
         width: 40%;
+        max-height: 300px;
         margin-top: 1rem;
         padding: 1rem;
         border-radius: 8px;
         background-color: #eee5e5;
     }
-}
+} 
